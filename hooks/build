@@ -24,6 +24,7 @@ elif [[ $DOCKER_TAG == *"-"* ]]; then
     .
 else
   KUBECTL_VERSION=$DOCKER_TAG
+  KUBECTL_VERSION=${KUBECTL_VERSION##v}
   docker build \
     --build-arg KUBECTL_VERSION=$KUBECTL_VERSION \
     -f $DOCKERFILE_PATH \
